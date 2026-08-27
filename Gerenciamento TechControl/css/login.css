@@ -1,0 +1,829 @@
+/* =========================================================
+   TECHCONTROL
+   LOGIN
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   CONTAINER
+   --------------------------------------------------------- */
+
+.login-container {
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+
+    background: var(--background);
+}
+
+/* ---------------------------------------------------------
+   LADO INFORMATIVO
+   --------------------------------------------------------- */
+
+.login-info {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 100vh;
+
+    padding: 55px 8%;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(59, 130, 246, 0.20),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            #0f172a,
+            #172554
+        );
+
+    color: white;
+}
+
+/* Efeito decorativo */
+
+.login-info::before {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    right: -200px;
+    bottom: -220px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.login-info::after {
+    content: "";
+
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    right: -300px;
+    bottom: -320px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ---------------------------------------------------------
+   CONTEÚDO
+   --------------------------------------------------------- */
+
+.info-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 650px;
+}
+
+/* ---------------------------------------------------------
+   MARCA
+   --------------------------------------------------------- */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.brand-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #3b82f6,
+        #2563eb
+    );
+
+    color: white;
+
+    font-size: 21px;
+
+    box-shadow:
+        0 8px 25px rgba(37, 99, 235, 0.35);
+}
+
+.brand-text h1 {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.brand-text span {
+    display: block;
+
+    margin-top: 2px;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 11px;
+    font-weight: 500;
+}
+
+/* ---------------------------------------------------------
+   DESCRIÇÃO
+   --------------------------------------------------------- */
+
+.info-description {
+    margin-top: 100px;
+}
+
+.welcome-label {
+    display: inline-block;
+
+    margin-bottom: 20px;
+
+    color: #60a5fa;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.6px;
+}
+
+.info-description h2 {
+    font-size: clamp(38px, 4vw, 58px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2.5px;
+
+    font-weight: 800;
+}
+
+.info-description h2 span {
+    color: #60a5fa;
+}
+
+.info-description p {
+    max-width: 500px;
+
+    margin-top: 25px;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* ---------------------------------------------------------
+   FEATURES
+   --------------------------------------------------------- */
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    margin-top: 55px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+}
+
+.feature-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: #60a5fa;
+
+    font-size: 14px;
+}
+
+.feature-item strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 13px;
+}
+
+.feature-item span {
+    color: rgba(255, 255, 255, 0.48);
+
+    font-size: 11px;
+}
+
+/* ---------------------------------------------------------
+   FOOTER INFORMATIVO
+   --------------------------------------------------------- */
+
+.info-footer {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: rgba(255, 255, 255, 0.35);
+
+    font-size: 10px;
+}
+
+.info-footer span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ---------------------------------------------------------
+   PAINEL DE LOGIN
+   --------------------------------------------------------- */
+
+.login-panel {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 430px;
+}
+
+/* ---------------------------------------------------------
+   HEADER LOGIN
+   --------------------------------------------------------- */
+
+.login-header {
+    margin-bottom: 35px;
+}
+
+.mobile-logo {
+    display: none;
+}
+
+.login-header h2 {
+    color: var(--text-primary);
+
+    font-size: 28px;
+    font-weight: 800;
+
+    letter-spacing: -0.8px;
+}
+
+.login-header p {
+    margin-top: 8px;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* ---------------------------------------------------------
+   FORM
+   --------------------------------------------------------- */
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: var(--text-primary);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.password-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.forgot-password {
+    border: none;
+    background: transparent;
+
+    color: var(--primary);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    transition: color var(--transition);
+}
+
+.forgot-password:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* ---------------------------------------------------------
+   INPUT
+   --------------------------------------------------------- */
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper input {
+    width: 100%;
+
+    height: 50px;
+
+    padding: 0 45px;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+
+    background: var(--surface);
+
+    color: var(--text-primary);
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+}
+
+.input-wrapper input::placeholder {
+    color: var(--text-muted);
+}
+
+.input-wrapper input:hover {
+    border-color: #cbd5e1;
+}
+
+.input-wrapper input:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+.input-icon {
+    position: absolute;
+
+    left: 16px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+    pointer-events: none;
+}
+
+/* ---------------------------------------------------------
+   MOSTRAR SENHA
+   --------------------------------------------------------- */
+
+.toggle-password {
+    position: absolute;
+
+    right: 13px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    background: transparent;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+
+    border-radius: 6px;
+
+    transition:
+        background var(--transition),
+        color var(--transition);
+}
+
+.toggle-password:hover {
+    background: #f1f5f9;
+    color: var(--text-primary);
+}
+
+/* ---------------------------------------------------------
+   MENSAGENS
+   --------------------------------------------------------- */
+
+.login-message {
+    display: none;
+
+    padding: 11px 13px;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.login-message.show {
+    display: block;
+}
+
+.login-message.error {
+    background: var(--danger-light);
+    color: var(--danger);
+
+    border: 1px solid #fecaca;
+}
+
+.login-message.success {
+    background: var(--success-light);
+    color: var(--success);
+
+    border: 1px solid #bbf7d0;
+}
+
+/* ---------------------------------------------------------
+   BOTÃO LOGIN
+   --------------------------------------------------------- */
+
+.login-button {
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    border: none;
+    border-radius: var(--radius-md);
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    box-shadow:
+        0 5px 15px rgba(37, 99, 235, 0.20);
+
+    transition:
+        background var(--transition),
+        transform var(--transition-fast),
+        box-shadow var(--transition);
+}
+
+.login-button:hover {
+    background: var(--primary-dark);
+
+    box-shadow:
+        0 8px 22px rgba(37, 99, 235, 0.28);
+
+    transform: translateY(-1px);
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+.login-button:disabled {
+    cursor: not-allowed;
+
+    opacity: 0.7;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+/* ---------------------------------------------------------
+   SEGURANÇA
+   --------------------------------------------------------- */
+
+.security-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    margin-top: 5px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+
+    text-align: center;
+}
+
+.security-info i {
+    color: var(--success);
+
+    font-size: 11px;
+}
+
+/* ---------------------------------------------------------
+   DIVISOR
+   --------------------------------------------------------- */
+
+.login-divider {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 35px 0 18px;
+}
+
+.login-divider::before,
+.login-divider::after {
+    content: "";
+
+    height: 1px;
+
+    flex: 1;
+
+    background: var(--border);
+}
+
+.login-divider span {
+    color: var(--text-muted);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+/* ---------------------------------------------------------
+   INFORMAÇÕES DO PROJETO
+   --------------------------------------------------------- */
+
+.project-info {
+    display: flex;
+    justify-content: center;
+
+    gap: 25px;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+}
+
+.project-item i {
+    color: var(--primary);
+
+    font-size: 10px;
+}
+
+/* ---------------------------------------------------------
+   MODAL
+   --------------------------------------------------------- */
+
+.modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(15, 23, 42, 0.55);
+
+    backdrop-filter: blur(5px);
+}
+
+.modal-overlay[hidden] {
+    display: none;
+}
+
+.modal {
+    position: relative;
+
+    width: 100%;
+    max-width: 400px;
+
+    padding: 35px;
+
+    border-radius: var(--radius-xl);
+
+    background: white;
+
+    box-shadow: var(--shadow-lg);
+
+    animation: modalIn 0.25s ease;
+}
+
+@keyframes modalIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+.modal-close {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #f8fafc;
+
+    color: var(--text-secondary);
+
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    background: #f1f5f9;
+
+    color: var(--danger);
+}
+
+.modal-icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 14px;
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+    font-size: 18px;
+}
+
+.modal h3 {
+    font-size: 20px;
+    font-weight: 800;
+
+    color: var(--text-primary);
+}
+
+.modal > p {
+    margin-top: 8px;
+    margin-bottom: 25px;
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+#resetPasswordForm {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+/* ---------------------------------------------------------
+   RESPONSIVIDADE
+   --------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+
+    .login-container {
+        grid-template-columns: 1fr;
+    }
+
+    .login-info {
+        display: none;
+    }
+
+    .login-panel {
+        min-height: 100vh;
+
+        padding: 40px 25px;
+    }
+
+    .mobile-logo {
+        display: block;
+
+        margin-bottom: 25px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .login-panel {
+        padding: 30px 18px;
+    }
+
+    .login-header h2 {
+        font-size: 24px;
+    }
+
+    .login-header p {
+        font-size: 12px;
+    }
+
+    .login-box {
+        max-width: 100%;
+    }
+
+    .project-info {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 10px;
+    }
+
+    .modal {
+        padding: 28px 22px;
+    }
+
+}
