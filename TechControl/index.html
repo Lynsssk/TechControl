@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="TechControl - Sistema de gerenciamento de projetos, equipes e atividades.">
+
+    <meta name="author" content="Equipe TechControl">
+
+    <title>TechControl | Login</title>
+
+    <!-- =====================================================
+         CSS PRINCIPAL
+    ====================================================== -->
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+
+    <!-- =====================================================
+         FONTS
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- =====================================================
+         ÍCONES
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- =====================================================
+         CONTAINER PRINCIPAL
+    ====================================================== -->
+
+    <main class="login-container">
+
+        <!-- =================================================
+             LADO ESQUERDO / APRESENTAÇÃO
+        ================================================== -->
+
+        <section class="login-info">
+
+            <div class="info-content">
+
+                <!-- LOGO -->
+
+                <div class="brand">
+
+                    <div class="brand-icon">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+
+                    <div class="brand-text">
+                        <h1>TechControl</h1>
+                        <span>Gestão de Projetos de TI</span>
+                    </div>
+
+                </div>
+
+
+                <!-- TEXTO PRINCIPAL -->
+
+                <div class="info-description">
+
+                    <span class="welcome-label">
+                        BEM-VINDO AO SISTEMA
+                    </span>
+
+                    <h2>
+                        Organize.
+                        <br>
+                        Desenvolva.
+                        <br>
+                        <span>Acompanhe.</span>
+                    </h2>
+
+                    <p>
+                        Uma plataforma criada para organizar equipes,
+                        tarefas, documentos e acompanhar o progresso
+                        do projeto em um único lugar.
+                    </p>
+
+                </div>
+
+
+                <!-- RECURSOS -->
+
+                <div class="features">
+
+                    <div class="feature-item">
+
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+
+                        <div>
+                            <strong>Equipes organizadas</strong>
+
+                            <span>
+                                Gerencie integrantes e líderes.
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-item">
+
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-list-check"></i>
+                        </div>
+
+                        <div>
+                            <strong>Controle de tarefas</strong>
+
+                            <span>
+                                Acompanhe o progresso de cada atividade.
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="feature-item">
+
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-file-lines"></i>
+                        </div>
+
+                        <div>
+                            <strong>Documentação</strong>
+
+                            <span>
+                                Centralize os arquivos do projeto.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RODAPÉ -->
+
+            <div class="info-footer">
+
+                <span>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    Ambiente acadêmico
+                </span>
+
+                <span>
+                    © 2026 TechControl
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LADO DIREITO / LOGIN
+        ================================================== -->
+
+        <section class="login-panel">
+
+            <div class="login-box">
+
+                <!-- CABEÇALHO -->
+
+                <div class="login-header">
+
+                    <div class="mobile-logo">
+
+                        <div class="brand-icon">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+
+                    </div>
+
+                    <h2>
+                        Acessar sistema
+                    </h2>
+
+                    <p>
+                        Entre com suas credenciais para continuar.
+                    </p>
+
+                </div>
+
+
+                <!-- =================================================
+                     FORMULÁRIO
+                ================================================== -->
+
+                <form id="loginForm" autocomplete="on">
+
+                    <!-- E-MAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            E-mail
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-regular fa-envelope input-icon"></i>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Digite seu e-mail"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SENHA -->
+
+                    <div class="form-group">
+
+                        <div class="password-label">
+
+                            <label for="password">
+                                Senha
+                            </label>
+
+                            <button
+                                type="button"
+                                class="forgot-password"
+                                id="forgotPasswordBtn"
+                            >
+                                Esqueci minha senha
+                            </button>
+
+                        </div>
+
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-lock input-icon"></i>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Digite sua senha"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="toggle-password"
+                                id="togglePassword"
+                                aria-label="Mostrar senha"
+                            >
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         MENSAGEM DE ERRO / SUCESSO
+                    ================================================== -->
+
+                    <div
+                        id="loginMessage"
+                        class="login-message"
+                        role="alert"
+                        aria-live="polite"
+                    >
+                    </div>
+
+
+                    <!-- =================================================
+                         BOTÃO ENTRAR
+                    ================================================== -->
+
+                    <button
+                        type="submit"
+                        class="login-button"
+                        id="loginButton"
+                    >
+
+                        <span id="loginButtonText">
+                            Entrar
+                        </span>
+
+                        <i
+                            id="loginButtonIcon"
+                            class="fa-solid fa-arrow-right"
+                        ></i>
+
+                        <span
+                            id="loginLoader"
+                            class="loader"
+                            hidden
+                        ></span>
+
+                    </button>
+
+
+                    <!-- =================================================
+                         INFORMAÇÃO DE SEGURANÇA
+                    ================================================== -->
+
+                    <div class="security-info">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                        <span>
+                            Seus dados são protegidos pelo
+                            sistema de autenticação.
+                        </span>
+
+                    </div>
+
+                </form>
+
+
+                <!-- =================================================
+                     INFORMAÇÕES DO PROJETO
+                ================================================== -->
+
+                <div class="login-divider">
+                    <span>TECHCONTROL</span>
+                </div>
+
+
+                <div class="project-info">
+
+                    <div class="project-item">
+
+                        <i class="fa-solid fa-code"></i>
+
+                        <span>
+                            Gestão de desenvolvimento
+                        </span>
+
+                    </div>
+
+                    <div class="project-item">
+
+                        <i class="fa-solid fa-cloud"></i>
+
+                        <span>
+                            Dados sincronizados
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         MODAL — RECUPERAÇÃO DE SENHA
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="passwordModal"
+        hidden
+    >
+
+        <div class="modal">
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closePasswordModal"
+                aria-label="Fechar"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+
+            <div class="modal-icon">
+
+                <i class="fa-solid fa-key"></i>
+
+            </div>
+
+
+            <h3>
+                Recuperar senha
+            </h3>
+
+            <p>
+                Digite seu e-mail e enviaremos um link
+                para redefinir sua senha.
+            </p>
+
+
+            <form id="resetPasswordForm">
+
+                <div class="form-group">
+
+                    <label for="resetEmail">
+                        E-mail
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <i class="fa-regular fa-envelope input-icon"></i>
+
+                        <input
+                            type="email"
+                            id="resetEmail"
+                            placeholder="Digite seu e-mail"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="resetMessage"
+                    class="login-message"
+                    role="alert"
+                >
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="login-button"
+                    id="resetButton"
+                >
+
+                    <span>
+                        Enviar link
+                    </span>
+
+                    <i class="fa-solid fa-paper-plane"></i>
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <!--
+        IMPORTANTE:
+        O auth.js será responsável por:
+        - Login
+        - Logout
+        - Recuperação de senha
+        - Verificação da sessão
+        - Redirecionamento
+    -->
+
+    <script
+        type="module"
+        src="js/auth.js"
+    ></script>
+
+</body>
+
+</html>

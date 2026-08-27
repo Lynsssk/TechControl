@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="TechControl - Painel de gerenciamento de equipes, tarefas e documentos."
+    >
+
+    <title>TechControl | Dashboard</title>
+
+    <!-- =====================================================
+         FONTES
+    ====================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         ÍCONES
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         LOADING INICIAL
+    ====================================================== -->
+
+    <div id="pageLoader" class="page-loader">
+
+        <div class="page-loader-content">
+
+            <div class="loader-logo">
+                <i class="fa-solid fa-microchip"></i>
+            </div>
+
+            <span class="loader"></span>
+
+            <p>
+                Carregando TechControl...
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         APLICAÇÃO
+    ====================================================== -->
+
+    <div
+        class="dashboard-app"
+        id="dashboardApp"
+        hidden
+    >
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside
+            class="sidebar"
+            id="sidebar"
+        >
+
+
+            <!-- LOGO -->
+
+            <div class="sidebar-brand">
+
+                <div class="sidebar-logo">
+
+                    <i class="fa-solid fa-microchip"></i>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        TechControl
+                    </strong>
+
+                    <span>
+                        Gestão do Projeto
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 USUÁRIO
+            ================================================== -->
+
+            <div class="sidebar-user">
+
+                <div
+                    class="user-avatar"
+                    id="sidebarUserAvatar"
+                >
+                    TC
+                </div>
+
+
+                <div class="sidebar-user-info">
+
+                    <strong id="sidebarUserName">
+                        Usuário
+                    </strong>
+
+                    <span id="sidebarUserRole">
+                        Carregando...
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MENU
+            ================================================== -->
+
+            <nav class="sidebar-nav">
+
+
+                <span class="menu-title">
+                    PRINCIPAL
+                </span>
+
+
+                <button
+                    class="menu-item active"
+                    data-page="home"
+                >
+
+                    <i class="fa-solid fa-chart-pie"></i>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </button>
+
+
+
+                <!-- =================================================
+                     EQUIPES
+                ================================================== -->
+
+                <button
+                    class="menu-item"
+                    data-page="equipes"
+                >
+
+                    <i class="fa-solid fa-people-group"></i>
+
+                    <span>
+                        Equipes
+                    </span>
+
+                </button>
+
+
+
+                <!-- =================================================
+                     INTEGRANTES
+                ================================================== -->
+
+                <button
+                    class="menu-item"
+                    data-page="integrantes"
+                >
+
+                    <i class="fa-solid fa-users"></i>
+
+                    <span>
+                        Integrantes
+                    </span>
+
+                </button>
+
+
+
+                <!-- =================================================
+                     TAREFAS
+                ================================================== -->
+
+                <button
+                    class="menu-item"
+                    data-page="tarefas"
+                >
+
+                    <i class="fa-solid fa-list-check"></i>
+
+                    <span>
+                        Tarefas
+                    </span>
+
+                </button>
+
+
+
+                <!-- =================================================
+                     DOCUMENTOS
+                ================================================== -->
+
+                <button
+                    class="menu-item"
+                    data-page="documentos"
+                >
+
+                    <i class="fa-solid fa-folder-open"></i>
+
+                    <span>
+                        Documentos
+                    </span>
+
+                </button>
+
+
+
+                <!-- =================================================
+                     AVISOS
+                ================================================== -->
+
+                <button
+                    class="menu-item"
+                    data-page="avisos"
+                >
+
+                    <i class="fa-solid fa-bullhorn"></i>
+
+                    <span>
+                        Avisos
+                    </span>
+
+                </button>
+
+
+
+                <!-- =================================================
+                     ADMIN
+                ================================================== -->
+
+                <div
+                    class="admin-menu"
+                    data-role="admin"
+                >
+
+                    <span class="menu-title">
+                        ADMINISTRAÇÃO
+                    </span>
+
+
+                    <button
+                        class="menu-item"
+                        data-page="usuarios"
+                    >
+
+                        <i class="fa-solid fa-user-gear"></i>
+
+                        <span>
+                            Usuários
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="menu-item"
+                        data-page="configuracoes"
+                    >
+
+                        <i class="fa-solid fa-gear"></i>
+
+                        <span>
+                            Configurações
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+            </nav>
+
+
+
+            <!-- =================================================
+                 LOGOUT
+            ================================================== -->
+
+            <div class="sidebar-footer">
+
+                <button
+                    class="logout-button"
+                    id="logoutButton"
+                >
+
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+
+                    <span>
+                        Sair
+                    </span>
+
+                </button>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- =================================================
+             CONTEÚDO
+        ================================================== -->
+
+        <main class="dashboard-main">
+
+
+            <!-- =================================================
+                 TOPBAR
+            ================================================== -->
+
+            <header class="dashboard-topbar">
+
+
+                <div class="topbar-left">
+
+                    <button
+                        class="mobile-menu-button"
+                        id="mobileMenuButton"
+                    >
+
+                        <i class="fa-solid fa-bars"></i>
+
+                    </button>
+
+
+                    <div>
+
+                        <span class="page-breadcrumb">
+                            TechControl
+                        </span>
+
+                        <h1 id="currentPageTitle">
+                            Dashboard
+                        </h1>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="topbar-right">
+
+
+                    <!-- EQUIPE -->
+
+                    <div
+                        class="current-team"
+                        id="currentTeamBox"
+                    >
+
+                        <i class="fa-solid fa-people-group"></i>
+
+                        <div>
+
+                            <span>
+                                Equipe
+                            </span>
+
+                            <strong id="currentTeamName">
+                                Geral
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PERFIL -->
+
+                    <button
+                        class="profile-button"
+                        id="profileButton"
+                    >
+
+                        <div
+                            class="profile-avatar"
+                            id="topUserAvatar"
+                        >
+                            TC
+                        </div>
+
+
+                        <div class="profile-data">
+
+                            <strong id="topUserName">
+                                Usuário
+                            </strong>
+
+                            <span id="topUserRole">
+                                Perfil
+                            </span>
+
+                        </div>
+
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </button>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- =================================================
+                 CONTEÚDO DAS PÁGINAS
+            ================================================== -->
+
+            <div class="dashboard-content">
+
+
+                <!-- =================================================
+                     DASHBOARD
+                ================================================== -->
+
+                <section
+                    class="dashboard-page active"
+                    id="page-home"
+                >
+
+
+                    <div class="page-header">
+
+                        <div>
+
+                            <span class="page-label">
+                                VISÃO GERAL
+                            </span>
+
+                            <h2 id="welcomeTitle">
+                                Bem-vindo ao TechControl
+                            </h2>
+
+                            <p id="welcomeDescription">
+                                Acompanhe o desenvolvimento do projeto.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="primary-action"
+                            id="quickTaskButton"
+                            data-role="admin,lider"
+                        >
+
+                            <i class="fa-solid fa-plus"></i>
+
+                            Nova tarefa
+
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         CARDS
+                    ================================================== -->
+
+                    <div class="dashboard-cards">
+
+
+                        <!-- EQUIPES -->
+
+                        <article class="dashboard-card">
+
+                            <div class="card-icon card-icon-blue">
+
+                                <i class="fa-solid fa-people-group"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    Equipes
+                                </span>
+
+                                <strong id="totalTeams">
+                                    0
+                                </strong>
+
+                                <small>
+                                    cadastradas
+                                </small>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- INTEGRANTES -->
+
+                        <article class="dashboard-card">
+
+                            <div class="card-icon card-icon-purple">
+
+                                <i class="fa-solid fa-users"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    Integrantes
+                                </span>
+
+                                <strong id="totalMembers">
+                                    0
+                                </strong>
+
+                                <small>
+                                    participantes
+                                </small>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- TAREFAS -->
+
+                        <article class="dashboard-card">
+
+                            <div class="card-icon card-icon-orange">
+
+                                <i class="fa-solid fa-list-check"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    Tarefas
+                                </span>
+
+                                <strong id="totalTasks">
+                                    0
+                                </strong>
+
+                                <small>
+                                    cadastradas
+                                </small>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- DOCUMENTOS -->
+
+                        <article class="dashboard-card">
+
+                            <div class="card-icon card-icon-green">
+
+                                <i class="fa-solid fa-folder-open"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    Documentos
+                                </span>
+
+                                <strong id="totalDocuments">
+                                    0
+                                </strong>
+
+                                <small>
+                                    registrados
+                                </small>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         PROGRESSO
+                    ================================================== -->
+
+                    <div class="dashboard-grid">
+
+
+                        <article class="dashboard-panel">
+
+
+                            <div class="panel-header">
+
+                                <div>
+
+                                    <h3>
+                                        Progresso geral
+                                    </h3>
+
+                                    <p>
+                                        Calculado com base nas tarefas cadastradas.
+                                    </p>
+
+                                </div>
+
+
+                                <strong
+                                    class="progress-number"
+                                    id="generalProgressValue"
+                                >
+                                    0%
+                                </strong>
+
+                            </div>
+
+
+
+                            <div class="large-progress">
+
+                                <div
+                                    class="large-progress-bar"
+                                    id="generalProgressBar"
+                                    style="width: 0%;"
+                                ></div>
+
+                            </div>
+
+
+
+                            <div class="progress-info-grid">
+
+
+                                <div>
+
+                                    <span>
+                                        A fazer
+                                    </span>
+
+                                    <strong id="pendingTasks">
+                                        0
+                                    </strong>
+
+                                </div>
+
+
+                                <div>
+
+                                    <span>
+                                        Em andamento
+                                    </span>
+
+                                    <strong id="progressTasks">
+                                        0
+                                    </strong>
+
+                                </div>
+
+
+                                <div>
+
+                                    <span>
+                                        Em revisão
+                                    </span>
+
+                                    <strong id="reviewTasks">
+                                        0
+                                    </strong>
+
+                                </div>
+
+
+                                <div>
+
+                                    <span>
+                                        Concluídas
+                                    </span>
+
+                                    <strong id="completedTasks">
+                                        0
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- =================================================
+                             EQUIPES
+                        ================================================== -->
+
+                        <article class="dashboard-panel">
+
+
+                            <div class="panel-header">
+
+                                <div>
+
+                                    <h3>
+                                        Progresso das equipes
+                                    </h3>
+
+                                    <p>
+                                        Andamento atual de cada módulo.
+                                    </p>
+
+                                </div>
+
+
+                                <button
+                                    class="panel-link"
+                                    data-open-page="equipes"
+                                >
+                                    Ver equipes
+                                </button>
+
+                            </div>
+
+
+                            <div
+                                class="team-progress-list"
+                                id="dashboardTeamProgress"
+                            >
+
+                                <div class="empty-state">
+
+                                    <i class="fa-solid fa-chart-line"></i>
+
+                                    <span>
+                                        Nenhuma equipe carregada.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         TAREFAS + DOCUMENTOS
+                    ================================================== -->
+
+                    <div class="dashboard-grid">
+
+
+                        <!-- TAREFAS RECENTES -->
+
+                        <article class="dashboard-panel">
+
+
+                            <div class="panel-header">
+
+                                <div>
+
+                                    <h3>
+                                        Tarefas recentes
+                                    </h3>
+
+                                    <p>
+                                        Últimas atividades do projeto.
+                                    </p>
+
+                                </div>
+
+
+                                <button
+                                    class="panel-link"
+                                    data-open-page="tarefas"
+                                >
+                                    Ver todas
+                                </button>
+
+                            </div>
+
+
+                            <div
+                                class="recent-task-list"
+                                id="recentTasks"
+                            >
+
+                                <div class="empty-state">
+
+                                    <i class="fa-solid fa-list-check"></i>
+
+                                    <span>
+                                        Nenhuma tarefa cadastrada.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- DOCUMENTOS RECENTES -->
+
+                        <article class="dashboard-panel">
+
+
+                            <div class="panel-header">
+
+                                <div>
+
+                                    <h3>
+                                        Documentos recentes
+                                    </h3>
+
+                                    <p>
+                                        Arquivos e links adicionados às tarefas.
+                                    </p>
+
+                                </div>
+
+
+                                <button
+                                    class="panel-link"
+                                    data-open-page="documentos"
+                                >
+                                    Ver documentos
+                                </button>
+
+                            </div>
+
+
+                            <div
+                                class="recent-document-list"
+                                id="recentDocuments"
+                            >
+
+                                <div class="empty-state">
+
+                                    <i class="fa-solid fa-folder-open"></i>
+
+                                    <span>
+                                        Nenhum documento cadastrado.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     EQUIPES
+                ================================================== -->
+
+                <section
+                    class="dashboard-page"
+                    id="page-equipes"
+                >
+
+
+                    <div class="page-header">
+
+                        <div>
+
+                            <span class="page-label">
+                                ORGANIZAÇÃO
+                            </span>
+
+                            <h2>
+                                Equipes
+                            </h2>
+
+                            <p>
+                                Acompanhe integrantes, líderes, tarefas e progresso.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="primary-action"
+                            id="newTeamButton"
+                            data-role="admin"
+                        >
+
+                            <i class="fa-solid fa-plus"></i>
+
+                            Nova equipe
+
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="teams-grid"
+                        id="teamsGrid"
+                    >
+
+                        <div class="empty-state">
+
+                            <i class="fa-solid fa-people-group"></i>
+
+                            <span>
+                                Nenhuma equipe cadastrada.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     INTEGRANTES
+                ================================================== -->
+
+                <section
+                    class="dashboard-page"
+                    id="page-integrantes"
+                >
+
+
+                    <div class="page-header">
+
+                        <div>
+
+                            <span class="page-label">
+                                PESSOAS
+                            </span>
+
+                            <h2>
+                                Integrantes
+                            </h2>
+
+                            <p>
+                                Veja quem faz parte de cada equipe.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="primary-action"
+                            id="newMemberButton"
+                            data-role="admin,lider"
+                        >
+
+                            <i class="fa-solid fa-user-plus"></i>
+
+                            Adicionar integrante
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="table-toolbar">
+
+
+                        <div class="search-box">
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                            <input
+                                type="text"
+                                id="memberSearch"
+                                placeholder="Buscar integrante..."
+                            >
+
+                        </div>
+
+
+                        <select id="memberTeamFilter">
+
+                            <option value="">
+                                Todas as equipes
+                            </option>
+
+                        </select>
+
+
+                    </div>
+
+
+
+                    <div class="data-table-container">
+
+
+                        <table class="data-table">
+
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Integrante
+                                    </th>
+
+                                    <th>
+                                        Matrícula
+                                    </th>
+
+                                    <th>
+                                        Equipe
+                                    </th>
+
+                                    <th>
+                                        Perfil
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                    <th>
+                                        Ação
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="membersTableBody">
+
+                                <tr>
+
+                                    <td
+                                        colspan="6"
+                                        class="table-empty"
+                                    >
+                                        Nenhum integrante carregado.
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     TAREFAS
+                ================================================== -->
+
+                <section
+                    class="dashboard-page"
+                    id="page-tarefas"
+                >
+
+
+                    <div class="page-header">
+
+                        <div>
+
+                            <span class="page-label">
+                                DESENVOLVIMENTO
+                            </span>
+
+                            <h2>
+                                Tarefas
+                            </h2>
+
+                            <p>
+                                Acompanhe o que está sendo feito por cada integrante.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="primary-action"
+                            id="newTaskButton"
+                            data-role="admin,lider"
+                        >
+
+                            <i class="fa-solid fa-plus"></i>
+
+                            Nova tarefa
+
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- FILTROS -->
+
+                    <div class="task-filters">
+
+
+                        <select id="taskTeamFilter">
+
+                            <option value="">
+                                Todas as equipes
+                            </option>
+
+                        </select>
+
+
+                        <select id="taskStatusFilter">
+
+                            <option value="">
+                                Todos os status
+                            </option>
+
+                            <option value="pendente">
+                                A fazer
+                            </option>
+
+                            <option value="andamento">
+                                Em andamento
+                            </option>
+
+                            <option value="revisao">
+                                Em revisão
+                            </option>
+
+                            <option value="concluida">
+                                Concluída
+                            </option>
+
+                            <option value="bloqueada">
+                                Bloqueada
+                            </option>
+
+                        </select>
+
+
+                    </div>
+
+
+
+                    <!-- KANBAN -->
+
+                    <div class="kanban-board">
+
+
+                        <!-- PENDENTE -->
+
+                        <div class="kanban-column">
+
+                            <div class="kanban-column-header">
+
+                                <span class="status-dot status-gray"></span>
+
+                                <strong>
+                                    A fazer
+                                </strong>
+
+                                <span
+                                    class="column-count"
+                                    id="pendingCount"
+                                >
+                                    0
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                class="kanban-list"
+                                id="pendingTaskList"
+                            ></div>
+
+                        </div>
+
+
+
+                        <!-- ANDAMENTO -->
+
+                        <div class="kanban-column">
+
+                            <div class="kanban-column-header">
+
+                                <span class="status-dot status-blue"></span>
+
+                                <strong>
+                                    Em andamento
+                                </strong>
+
+                                <span
+                                    class="column-count"
+                                    id="progressCount"
+                                >
+                                    0
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                class="kanban-list"
+                                id="progressTaskList"
+                            ></div>
+
+                        </div>
+
+
+
+                        <!-- REVISÃO -->
+
+                        <div class="kanban-column">
+
+                            <div class="kanban-column-header">
+
+                                <span class="status-dot status-orange"></span>
+
+                                <strong>
+                                    Em revisão
+                                </strong>
+
+                                <span
+                                    class="column-count"
+                                    id="reviewCount"
+                                >
+                                    0
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                class="kanban-list"
+                                id="reviewTaskList"
+                            ></div>
+
+                        </div>
+
+
+
+                        <!-- CONCLUÍDA -->
+
+                        <div class="kanban-column">
+
+                            <div class="kanban-column-header">
+
+                                <span class="status-dot status-green"></span>
+
+                                <strong>
+                                    Concluída
+                                </strong>
+
+                                <span
+                                    class="column-count"
+                                    id="completedCount"
+                                >
+                                    0
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                class="kanban-list"
+                                id="completedTaskList"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     DOCUMENTOS
+                ================================================== -->
+
+                <section
+                    class="dashboard-page"
+                    id="page-documentos"
+                >
+
+
+                    <div class="page-header">
+
+                        <div>
+
+                            <span class="page-label">
+                                ARQUIVOS
+                            </span>
+
+                            <h2>
+                                Documentos
+                            </h2>
+
+                            <p>
+                                Registre links de códigos, PDFs e materiais do projeto.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="primary-action"
+                            id="newDocumentButton"
+                        >
+
+                            <i class="fa-solid fa-link"></i>
+
+                            Adicionar documento
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="documents-toolbar">
+
+
+                        <div class="search-box">
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                            <input
+                                id="documentSearch"
+                                type="text"
+                                placeholder="Buscar documento..."
+                            >
+
+                        </div>
+
+
+                        <select id="documentTypeFilter">
+
+                            <option value="">
+                                Todos os tipos
+                            </option>
+
+                            <option value="codigo">
+                                Código
+                            </option>
+
+                            <option value="documentacao">
+                                Documentação
+                            </option>
+
+                            <option value="teste">
+                                Teste
+                            </option>
+
+                            <option value="diagrama">
+                                Diagrama
+                            </option>
+
+                            <option value="apresentacao">
+                                Apresentação
+                            </option>
+
+                            <option value="outro">
+                                Outro
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div
+                        class="documents-grid"
+                        id="documentsGrid"
+                    >
+
+                        <div class="empty-state">
+
+                            <i class="fa-solid fa-folder-open"></i>
+
+                            <span>
+                                Nenhum documento registrado.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     AVISOS
+                ================================================== -->
+
+                <section
+                    class="dashboard-page"
+                    id="page-avisos"
+                >
+
+
+                    <div class="page-header">
+
+                        <div>
+
+                            <span class="page-label">
+                                COMUNICAÇÃO
+                            </span>
+
+                            <h2>
+                                Avisos
+                            </h2>
+
+                            <p>
+                                Comunicados gerais e informações importantes.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="primary-action"
+                            id="newNoticeButton"
+                            data-role="admin,lider"
+                        >
+
+                            <i class="fa-solid fa-plus"></i>
+
+                            Novo aviso
+
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="notices-list"
+                        id="noticesList"
+                    >
+
+                        <div class="empty-state">
+
+                            <i class="fa-solid fa-bullhorn"></i>
+
+                            <span>
+                                Nenhum aviso cadastrado.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     USUÁRIOS — ADMIN
+                ================================================== -->
+
+                <section
+                    class="dashboard-page"
+                    id="page-usuarios"
+                    data-role="admin"
+                >
+
+
+                    <div class="page-header">
+
+                        <div>
+
+                            <span class="page-label">
+                                ADMINISTRAÇÃO
+                            </span>
+
+                            <h2>
+                                Usuários
+                            </h2>
+
+                            <p>
+                                Controle os perfis cadastrados no TechControl.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="primary-action"
+                            id="adminNewUserButton"
+                        >
+
+                            <i class="fa-solid fa-user-plus"></i>
+
+                            Novo usuário
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="data-table-container">
+
+
+                        <table class="data-table">
+
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Nome
+                                    </th>
+
+                                    <th>
+                                        E-mail
+                                    </th>
+
+                                    <th>
+                                        Matrícula
+                                    </th>
+
+                                    <th>
+                                        Equipe
+                                    </th>
+
+                                    <th>
+                                        Perfil
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="usersTableBody">
+
+                                <tr>
+
+                                    <td
+                                        colspan="6"
+                                        class="table-empty"
+                                    >
+                                        Nenhum usuário carregado.
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     CONFIGURAÇÕES
+                ================================================== -->
+
+                <section
+                    class="dashboard-page"
+                    id="page-configuracoes"
+                    data-role="admin"
+                >
+
+
+                    <div class="page-header">
+
+                        <div>
+
+                            <span class="page-label">
+                                SISTEMA
+                            </span>
+
+                            <h2>
+                                Configurações
+                            </h2>
+
+                            <p>
+                                Configurações gerais do TechControl.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="settings-grid">
+
+
+                        <article class="settings-card">
+
+                            <i class="fa-solid fa-code"></i>
+
+                            <h3>
+                                Projeto principal
+                            </h3>
+
+                            <p>
+                                TechControl — Sistema de gestão patrimonial em C99.
+                            </p>
+
+                        </article>
+
+
+
+                        <article class="settings-card">
+
+                            <i class="fa-solid fa-users"></i>
+
+                            <h3>
+                                Turma
+                            </h3>
+
+                            <p>
+                                Organização planejada para aproximadamente 80 integrantes.
+                            </p>
+
+                        </article>
+
+
+
+                        <article class="settings-card">
+
+                            <i class="fa-solid fa-people-group"></i>
+
+                            <h3>
+                                Equipes
+                            </h3>
+
+                            <p>
+                                O projeto será organizado em 8 equipes principais.
+                            </p>
+
+                        </article>
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MODAL GLOBAL
+    ====================================================== -->
+
+    <div
+        class="dashboard-modal-overlay"
+        id="globalModal"
+        hidden
+    >
+
+
+        <div class="dashboard-modal">
+
+
+            <div class="dashboard-modal-header">
+
+                <div>
+
+                    <span class="page-label">
+                        TECHCONTROL
+                    </span>
+
+                    <h3 id="globalModalTitle">
+                        Novo registro
+                    </h3>
+
+                </div>
+
+
+                <button
+                    class="modal-close-button"
+                    id="closeGlobalModal"
+                >
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+            <div
+                class="dashboard-modal-body"
+                id="globalModalBody"
+            >
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div
+        class="dashboard-toast"
+        id="dashboardToast"
+    >
+    </div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script
+        type="module"
+        src="js/dashboard.js"
+    ></script>
+
+</body>
+
+</html>
